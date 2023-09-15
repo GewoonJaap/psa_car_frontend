@@ -1,11 +1,12 @@
 <script lang="ts">
 	import type { CarDetails } from "$lib/typedef/carDetailsFromABRP";
-	import type { Vehicle, VehicleResult } from "$lib/typedef/getVehicleInfoResult";
+	import type { VehicleResult } from "$lib/typedef/getVehicleInfoResult";
     import carLogos from "$lib/const/carManufacturerLogos.json";
 	import { capitalizeFirstLetter } from "$lib/helpers/stringHelper";
 	import { onMount } from "svelte";
 	import { changePreconditioning, flashLights, getVehicleInfo, horn, lockDoor } from "$lib/api/apiController";
     import * as log from '$lib/helpers/consoleLogHelper';
+	import type { Vehicle } from "$lib/typedef/getVehiclesResult";
 
      
     export let data: {
@@ -47,7 +48,7 @@
     }
 
     async function toggleDoor(){
-        await lockDoor(false, data.vin);
+        await lockDoor(false, data.vin)
     }
 
 </script>
