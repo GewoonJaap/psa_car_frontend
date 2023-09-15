@@ -6,7 +6,7 @@ import type { Vehicles } from '$lib/typedef/getVehiclesResult';
 import * as log from '$lib/helpers/consoleLogHelper';
 
 let currentEndpoint = 'https://psa-dev.mrproper.dev';
-let alwaysWakeUp = true;
+let alwaysWakeUp = false;
 
 export async function getVehicles(): Promise<Vehicles> {
 	log.info(`Getting all vehicles`);
@@ -37,7 +37,7 @@ export async function lockDoor(lockDoor: boolean, vin: string): Promise<void> {
 		await wakeCar(vin);
 	}
 	log.info(`${lockDoor ? 'Locking' : 'Unlocking'} the door for ${vin}`);
-	var response = await fetch(currentEndpoint + '/lock_door/' + vin + lockDoor ? 'lock' : 'unlock');
+	var response = await fetch(currentEndpoint + '/lock_door/' + vin + '/' + (lockDoor ? 'lock' : 'unlock'));
 	return;
 }
 
