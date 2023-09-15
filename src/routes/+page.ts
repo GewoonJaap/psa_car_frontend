@@ -16,6 +16,7 @@ export async function load({ params }) {
 		vehicle: vehicles[0],
 		vehicleInfo: vehicleInfo,
 		carImage: carImage,
-		carDetails: carDetails
+		carDetails: carDetails,
+		vin: vehicles[0].vin
 	};
 }
