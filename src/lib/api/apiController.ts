@@ -7,7 +7,7 @@ import type { Vehicles } from '$lib/typedef/getVehiclesResult';
 var currentEndpoint = "https://psa-dev.mrproper.dev";
 
 export async function getVehicles(): Promise<Vehicles>{
-    var response = await fetch(currentEndpoint + "/vehicles");
+    var response = await fetch(currentEndpoint + "/get_vehicles");
     return response.json();
 }
 
